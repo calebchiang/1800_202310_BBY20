@@ -2,7 +2,8 @@
 
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+This browser based web application to ...
+*Josh: Im scared, but hopefully we can help people learn about extreme weather events around the globe. 
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
