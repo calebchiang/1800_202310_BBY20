@@ -3,6 +3,7 @@
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
 This browser based web application to ... 
+* Hi my name is Sarah. I'm excited about this project because I can experience working in a team.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
