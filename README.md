@@ -8,7 +8,11 @@ This browser based web application to ...
 =======
 This browser based web application to ... 
 * Hi my name is Sarah. I'm excited about this project because I can experience working in a team.
+<<<<<<< HEAD
 >>>>>>> 0b08fc210b935c7b7c11fbf9387b85d13813bfc0
+=======
+* Hi my name is Caleb. I am excited about this project because I want to improve my programming skills.
+>>>>>>> 8bd2655adde08c542f30a1ea77adae750b89e4fa
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
