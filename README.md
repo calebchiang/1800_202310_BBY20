@@ -3,7 +3,7 @@
 ## 1. Project Description
 State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
 This browser based web application to ...
-* Josh: Im scared, but hopefully we can help people learn about extreme weather events around the globe.  
+* Josh: Sidewalks are dope and we want to keep them safe. Stay upright out there.  
 * Hi my name is Sarah. I'm excited about this project because I can experience working in a team.
 * HI my name is Caleb. I am excited to improve my programming skills.
 ## 2. Names of Contributors
