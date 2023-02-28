@@ -42,5 +42,15 @@ p {
 }
 
 
-
+.login{
+ 
+  width: 100%;
+ 
+  text-align: center;
+ 
+  color: white;
+  align-items: center;
+  margin-top: 10%;
+  margin-bottom:2%;
+}
 

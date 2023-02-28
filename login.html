@@ -26,6 +26,15 @@
 
     <!-- Other libraries go here -->
 
+    <!-- Firebase Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+   
+   
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="styles/style.css">
   
@@ -37,7 +46,7 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-  <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Side Side</a>
       <img src = "images/logo.webp" height = "36">
@@ -77,16 +86,14 @@
       </div>
     </div>
   </nav>
-  
-  <div class="header">
-    <h1>Side Guide</h1>
-    <p>Keeping you informed so you can stay on your feet!</p>
-    <div class="d-grid gap-2 d-md-block">
-      <a href="login.html"><button class="btn btn-dark" type="button">Login</button></a>
-      <button class="btn btn-dark" type="button">Signup</button>
-    </div>
+
+  <div class="login">
+    <h1>Let's Login!</h1>
   </div>
-  
+  <div id="firebaseui-auth-container"></div>
+  <div id="loader">Loading...</div>
+    
+
 
   <nav class="navbar fixed-bottom navbar-light bg-dark">
       <div class="container-fluid">
@@ -109,11 +116,22 @@
       </div>
     </nav>
 
+  
+    
+
+
+    
+
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_BBY20.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/authentication.js"></script>
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
+
+   
   </body>
 </html>
