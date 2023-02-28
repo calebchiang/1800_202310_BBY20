@@ -11,9 +11,9 @@ marker.bindPopup("<b>BCIT</b><br>British Columbia Institute of Technology").open
 var popup = L.popup();
 
 function onMapClick(e) {
-  popup
-    .setsLatLng(e.latlng)
-    .setContent("You clicked the map at " + e.latlng.toString())
-    .openOn(map);
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
 }
 map.on('click', onMapClick);
