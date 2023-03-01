@@ -2,9 +2,7 @@ body {
     background-color: #212529;
 }
 
-h1,
-p,
-a{
+h1, p, a {
   margin: 0;
   padding: 0;
 }
@@ -41,9 +39,7 @@ p {
     width:10vw;
 }
 
-
 .login{
- 
   width: 100%;
  
   text-align: center;
@@ -54,3 +50,26 @@ p {
   margin-bottom:2%;
 }
 
+.navbar { 
+  font-size: 1.3em;
+  margin: 0px;
+}
+
+.navbar-brand {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-left: 0.8em;
+
+  color: whitesmoke !important;
+}
+
+.navbar-expand-lg > .nav-item {
+  position: absolute;
+  /* center navbar items */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+svg {
+  fill: whitesmoke;
+}

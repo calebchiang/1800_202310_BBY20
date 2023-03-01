@@ -4,24 +4,12 @@ html, body {
     padding: 0;
 }
 
-.navbar { 
-    font-size: 1.3em;
-    margin: 0px;
-}
-
-.navbar-brand {
-    font-size: 1.2em;
-    font-weight: bold;
-    padding-left: 0.8em;
-
-    color: whitesmoke !important;
+body {
+    display: grid;
+    grid-template-rows: 63px auto 63px;
 }
 
 #map { 
     height: 100%;
     width: 100%;
-}
-
-svg {
-  fill: whitesmoke;
 }
