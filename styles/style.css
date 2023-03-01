@@ -63,12 +63,16 @@ p {
   color: whitesmoke !important;
 }
 
-.navbar-expand-lg > .nav-item {
-  position: absolute;
-  /* center navbar items */
-  left: 50%;
-  transform: translateX(-50%);
+@media (min-width: 992px) {
+
+  .navbar-expand-lg > * > .navbar-nav {
+    position: absolute;
+    /* center navbar items */
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
+
 
 svg {
   fill: whitesmoke;
