@@ -1,0 +1,26 @@
+/* will need to update when using database hazard cards */
+
+.card-container {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.card-deck {
+    display: flex;
+    padding: 10rem 3rem;
+}
+
+.card-deck .card {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 25vh;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
