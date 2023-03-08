@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged(user => {
             })
     } else {
         console.log("No user is signed in");
-        alert("Pleas sign in to upload!")
+        alert("Please sign in to upload!")
         window.location.href = 'upload.html';
     }
 });
