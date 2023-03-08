@@ -49,7 +49,8 @@
             <form>
             <h4 id="img-tag">Add an image: </h4>
             <form action="/action_page.php">
-                <input type="file" id="myFile" name="filename">
+                <input type="file" id="photo" name="filename">
+                <img id="image"/>
               </form>
               <div class="severity">
               <label for="severity-select"><h4 id="severity">How severe is it?</h4></label>
@@ -66,7 +67,7 @@
     <br>
   </form>
   <div class="submit">
-  <input type="submit" value="submit">
+  <input type="submit" value="submit" onclick="uploadPost()">
   </div>
 </form>
     </div>
@@ -82,5 +83,6 @@
     <script src="./scripts/firebaseAPI_BBY20.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/upload.js"></script>
   </body>
 </html>
