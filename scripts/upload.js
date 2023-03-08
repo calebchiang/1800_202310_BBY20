@@ -28,13 +28,8 @@ firebase.auth().onAuthStateChanged(user => {
                 }).then(() => {
                     window.location.href = "map.html"; //new line added
                 })
-            })
-    } else {
-        console.log("No user is signed in");
-        window.location.href = 'upload.html';
-    }
-});
-task
+
+                task
 .then(snapshot => snapshot.ref.getDownloadURL())
 .then(url => {
    console.log(url)
@@ -42,4 +37,12 @@ task
    const image = document.querySelector('#image')
    image.src = url
 });
+            })
+    } else {
+        console.log("No user is signed in");
+        alert("Pleas sign in to upload!")
+        window.location.href = 'upload.html';
+    }
+});
+
 }
