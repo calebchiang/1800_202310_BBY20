@@ -23,6 +23,7 @@ listenFileSelect();
                var severity = document.getElementById("severity-select").value;
                db.collection("posts").add({
                    owner: user.uid,
+                   image: "",
                    description: desc,
                    severity: severity,
                    last_updated: firebase.firestore.FieldValue
