@@ -25,7 +25,6 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="styles/upload.css"/>
     <link rel="stylesheet" href="styles/style.css" />
 
   </head>
@@ -40,39 +39,7 @@
     <!------------------------------------->
     <!-- the body of your page goes here -->
     <!------------------------------------->
-    <div class="container">
-            
-        <header class="header">
-            <h2 id="upload-header">Content Upload</h2>
-        </header>
-        <div class="form">
-            <form>
-            <h4 id="img-tag">Add an image: </h4>
-            <form action="/action_page.php">
-                <input type="file" id="photo" name="filename" accept="image/*">
-                <img id="image"/>
-              </form>
-              
-              <div class="severity">
-              <label for="severity-select"><h4 id="severity">How severe is it?</h4></label>
-          <select name="severity" id="severity-select">
-            <option value="">--Please choose an option--</option>
-            <option value="mild">Mild</option>
-            <option value="moderate">Moderate</option>
-            <option value="severe">Severe</option>
-          </select>
-          </div>
-<form action="/action_page.php">
-    <p><label for="hazard-description">Description:</label></p>
-    <textarea id="hazard-description" name="description" rows="4" cols="50">Add a short description...</textarea>
-    <br>
-  </form>
-  <div class="submit">
-  <input type="submit" value="submit" onclick="uploadPost()">
-  </div>
-</form>
-    </div>
-    </div> 
+    
 
     <nav id="footerPlaceholder"></nav>
 
@@ -82,8 +49,7 @@
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/firebaseAPI_BBY20.js"></script>
-    <script src="./scripts/script.js"></script>
+    <!-- <script src="./scripts/script.js"></script> -->
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/upload_2.js"></script>
   </body>
 </html>

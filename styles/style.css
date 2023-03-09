@@ -24,11 +24,37 @@ html, body {
   font-size: 1.2em;
   font-weight: bold;
   padding-left: 0.8em;
-
+  text-align: center;
   color: whitesmoke !important;
 }
 
+
+
+svg {
+  fill: whitesmoke;
+}
+
+.login-web {
+  display: none;
+}
+
+.login-mobile {
+  margin-right: auto;
+  margin-left: 2%;
+  font-size: .9em;
+}
+
 @media (min-width: 992px) {
+
+  .login-web {
+    display: block;
+    margin-right: 5%;
+    font-size: .9em;
+  }
+  .login-mobile {
+    display:  none;
+  }
+
 
   .navbar-expand-lg > * > .navbar-nav {
     position: absolute;
@@ -36,8 +62,4 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
   }
-}
-
-svg {
-  fill: whitesmoke;
 }
