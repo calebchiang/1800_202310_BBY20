@@ -1,10 +1,10 @@
 body {
-    background-color: #212529;
-    color: #0d6efd;
-
+    background-color: #fffafb;
     display: grid;
     grid-template-rows: 63px auto 63px;
 }
+
+
 
 .container {
     display: grid;
@@ -39,4 +39,7 @@ body {
     margin-top: 5%;
     grid-column: 2;
     grid-row: 1;
+}
+#upload-map {
+    width: 50vw;
 }

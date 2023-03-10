@@ -3,6 +3,7 @@ body {
 }
 
 h1 {
+    color: #339989;
     font-size: 2.8em;
     padding: 10px 0;
     font-weight: 800;
@@ -18,8 +19,8 @@ p {
     width: 100%;
     padding: 5em 0;
     text-align: center;
-    background: #0d6efd;
-    color: white;
+    background: #fffafb;
+    color: #131515;
     align-items: center;
     margin-top: 10%;
 }

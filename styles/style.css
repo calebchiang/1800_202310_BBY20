@@ -3,13 +3,13 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #212529;
+  background-color: #fffafb;
 }
 
 .login{
   width: 100%;
   text-align: center;
-  color: white;
+  color: #339989;
   align-items: center;
   margin-top: 10%;
   margin-bottom:2%;
@@ -31,7 +31,7 @@ html, body {
 
 
 svg {
-  fill: whitesmoke;
+  fill: #339989;
 }
 
 .login-web {
@@ -43,6 +43,15 @@ svg {
   margin-left: 2%;
   font-size: .9em;
 }
+a:link {
+  color: #339989;
+}
+a:visited {
+  color: #339989;
+}
+a:hover {
+  color: #7de2d1 !important;
+}
 
 @media (min-width: 992px) {
 
@@ -53,6 +62,15 @@ svg {
   }
   .login-mobile {
     display:  none;
+  }
+  a:link {
+    color: #339989;
+  }
+  a:visited {
+    color: #339989;
+  }
+  a:hover {
+    color: #7de2d1;
   }
 
 
