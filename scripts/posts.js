@@ -4,6 +4,7 @@ function displayCardsDynamically(collection) {
   console.log({cardTemplate})
 
   db.collection(collection)
+    .orderBy("last_updated", "desc")
     .get()
     .then(allPosts => {
       allPosts.forEach((post) => {
