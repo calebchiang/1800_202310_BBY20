@@ -81,3 +81,16 @@ a:hover {
     transform: translateX(-50%);
   }
 }
+
+.user-profile-icon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  padding: 5px;
+  border-radius: 50%;
+  
+}
+
+.user-profile-icon img {
+  border-radius: 50%;
+}
