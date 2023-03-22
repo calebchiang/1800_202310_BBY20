@@ -97,6 +97,11 @@ function initAutocomplete() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
+
+  // console log the lat and lng of the map on click
+  google.maps.event.addListener(map, "click", function (e) {
+    console.log(e.latLng.lat(), e.latLng.lng());
+  });
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
