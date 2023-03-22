@@ -93,4 +93,12 @@ a:hover {
 
 .user-profile-icon img {
   border-radius: 50%;
+  background-color: white;
+ 
+
+}
+
+.profile-container{
+  width:100%;
+  font-size:100px;
 }
