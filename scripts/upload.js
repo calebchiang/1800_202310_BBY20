@@ -1,6 +1,8 @@
-var map;
+var lat;
+var lng;
+
 function initAutocomplete() {
-  map = new google.maps.Map(document.getElementById("map"), {
+  const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 49.250756, lng: -123.0007691 },
     zoom: 14,
     mapTypeId: "roadmap",
@@ -15,6 +17,7 @@ function initAutocomplete() {
     searchBox.setBounds(map.getBounds());
   });
 
+  let markers = [];
 
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
@@ -50,14 +53,14 @@ function initAutocomplete() {
       
 
       // Create a marker for each place.
-      // markers.push(
-      //   new google.maps.Marker({
-      //     map,
-      //     icon,
-      //     title: place.name,
-      //     position: place.geometry.location,
-      //   })
-      // );
+      markers.push(
+        new google.maps.Marker({
+          map,
+          icon,
+          title: place.name,
+          position: place.geometry.location,
+        })
+      );
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
@@ -99,6 +102,27 @@ function initAutocomplete() {
     }
   });
 
+  // console log the lat and lng of the map on click
+  google.maps.event.addListener(map, "click", function (e) {
+    console.log(e.latLng.lat(), e.latLng.lng());
+    lat = e.latLng.lat();
+    lng = e.latLng.lng();
+    console.log(lng);
+    console.log(lat);
+    placeMarker(e.latLng);
+  });
+
+  function placeMarker(location) {
+    
+      var marker = new google.maps.Marker({
+        position:location,
+        map:map,
+        draggable:true
+      });
+    
+      marker.setPosition(location);
+    
+  }
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -109,49 +133,78 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       : "Error: Your browser doesn't support geolocation."
   );
   infoWindow.open(map);
-
 }
-var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
-function displayPostMarkers() {
-  db.collection('posts')
-  .get()
-  .then(snap => {
-    snap.forEach(doc =>{
-      severity = doc.data().severity;
-      docId = doc.id;
-      lat = doc.data().lat;
-      lng = doc.data().lng;
-      console.log(docId)
-      if(severity == "severe") {
-        new google.maps.Marker({
-          docid: docId,
-          position: new google.maps.LatLng(lat, lng),
-          map:map,
-          icon: iconBase + 'red-blank.png'
 
+window.initAutocomplete = initAutocomplete;
+
+var ImageFile;
+function listenFileSelect() {
+  var fileInput = document.getElementById("photo");
+  const image = document.getElementById("image");
+
+  fileInput.addEventListener("change", function (e) {
+    ImageFile = e.target.files[0];
+    var blob = URL.createObjectURL(ImageFile);
+    image.src = blob;
+  });
+}
+listenFileSelect();
+
+document.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    // event.preventDefault();
+    document.getElementById("submit-button").click();
+  }
+});
+function uploadPost() {
+  alert("Post is being uploaded");
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      var desc = document.getElementById("hazard-description").value;
+      var severity = document.getElementById("severity-select").value;
+      db.collection("posts")
+        .add({
+          owner: user.uid,
+          image: "",
+          lat: lat,
+          lng: lng,
+          description: desc,
+          severity: severity,
+          last_updated: firebase.firestore.FieldValue.serverTimestamp(), //current system time
+        })
+        .then((doc) => {
+          console.log("Post document added!");
+          console.log(doc.id);
+          uploadPic(doc.id);
         });
-      }
-      else if(severity == "moderate") {
-        new google.maps.Marker({
-          docid: docId,
-          position: new google.maps.LatLng(lat, lng),
-          map:map,
-          icon: iconBase + 'orange-blank.png'
-        });
-      }
-      else {
-        new google.maps.Marker({
-          docid: docId,
-          position: new google.maps.LatLng(lat, lng),
-          map:map,
-          icon: iconBase + 'ylw-blank.png'
-        });
-      }      
-     
-      
-    });
+    } else {
+      // No user is signed in.
+      console.log("Error, no user signed in");
+    }
   });
 }
 
-displayPostMarkers();
-window.initAutocomplete = initAutocomplete;
+function uploadPic(postDocID) {
+  console.log("inside uploadPic " + postDocID);
+  var storageRef = storage.ref("images/" + postDocID + ".jpg");
+
+  storageRef
+    .put(ImageFile)
+    .then(function () {
+      console.log("Uploaded to Cloud Storage.");
+      storageRef.getDownloadURL().then(function (url) {
+        console.log("Got the download URL.");
+        db.collection("posts")
+          .doc(postDocID)
+          .update({
+            image: url,
+          })
+          .then(function () {
+            console.log("Added pic URL to Firestore.");
+          });
+      });
+    })
+    .catch((error) => {
+      console.log("error uploading to cloud storage");
+    });
+}

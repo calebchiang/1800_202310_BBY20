@@ -37,6 +37,7 @@
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="styles/upload.css" />
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/map.css"/>
   </head>
 
   <body>
@@ -73,7 +74,8 @@
               <option value="severe">Severe</option>
             </select>
           </div>
-          <form action="/action_page.php">
+          
+          <form action="/action_page.php" id="description">
             <p><label for="hazard-description">Description:</label></p>
             <textarea required
               id="hazard-description"
@@ -91,9 +93,12 @@
         </form>
       </div>
     </div>
+    <input id="pac-input" class="controls" type="text" placeholder="Search"/>
+          <button id="current-location" class="controls">Go to Current Location</button>
+          <div id="map"></div>
     </div>
 
-    <nav id="footerPlaceholder"></nav>
+    <!-- <nav id="footerPlaceholder"></nav> -->
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
@@ -104,6 +109,6 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/upload_2.js"></script>
-    <script src="./scripts/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-ZJFn0i691fnJVIzQYSxCvlBUayKaD-I&callback=initAutocomplete&libraries=places&v=weekly"></script>
   </body>
 </html>
