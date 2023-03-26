@@ -24,38 +24,39 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
+    <!-- Moment.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="styles/style.css" />
-
   </head>
 
   <body>
     <!------------------------------>
-    <!-- HTML Layout -->
+    <!-------- HTML Layout --------->
     <!------------------------------>
-    
-
+  
     <nav id="navbarPlaceholder"></nav>
 
-     
-    
     <div class="profile-container">
-      <p>User: <span id ="name-goes-here"></span></p>
+      <p>User: <span id="name-goes-here"></span></p>
     </div>
 
-    
-
-
-  
-
-   
-      
-
-    
-    <!------------------------------------->
-    <!-- the body of your page goes here -->
-    <!------------------------------------->
-    <div class="stuff"></div>
+    <div class="card-container">
+      <template id="postCardTemplate">
+        <div class="card">
+          <img class="card-img-top" src="#" alt="...">
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="severity">Severity</p>
+          </div>
+          <button class="delete-button">Delete</button>
+          <div class="card-footer">
+            <small class="text-muted">Last updated <span class='last_updated'></span> by <span class="owner"></span></small>
+          </div>
+        </div>
+      </template>
+    </div>
 
     <nav id="footerPlaceholder"></nav>
 

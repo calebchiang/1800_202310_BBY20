@@ -1,8 +1,5 @@
 function displayCardsDynamically(collection) {
   const cardTemplate = document.getElementById("postCardTemplate");
-
-  console.log({cardTemplate})
-
   db.collection(collection)
     .orderBy("last_updated", "desc")
     .get()
