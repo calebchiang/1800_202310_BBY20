@@ -60,8 +60,10 @@ function insertNameFromFirestore() {
 
             let deleteButton = $(card).find(".delete-button");
             $(deleteButton).click(() => {
-              post.ref.delete();
-              $(card).remove();
+              if (window.confirm("Are you sure you want to delete this post?")) {
+                post.ref.delete();
+                $(card).remove();
+              }
             });
           });
         });
