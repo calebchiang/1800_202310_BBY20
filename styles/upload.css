@@ -1,47 +1,5 @@
-body {
-    background-color: #fffafb;
-    display: grid;
-    grid-template-rows: 63px auto 63px;
-}
-
-#upload-header {
-    text-align: center;
-}
-
-.container {
-    display: grid;
-    height: 100vh;
-}
-
 #map {
-    grid-row: 4;
-    width: 60%;
-    height: 200px;
+    margin: 10% auto;
+    height: 30%;
+    width: 60%;  
 }
-
-.form {
-
-    
-}
-
-.severity {
-    grid-row: 2;
-    align-items: center;
-}
-
-#severity-select {
-    margin-left: 5%;
-    grid-row: 3;
-}
-
-.submit {
-    align-items: center;
-    grid-row: 5;
-
-}
-.header {
-    margin-top: 5%;
-    grid-column: 2;
-    grid-row: 1;
-}
-

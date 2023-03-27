@@ -50,13 +50,13 @@
     <!------------------------------------->
     <!-- the body of your page goes here -->
     <!------------------------------------->
-    <div class="content">
+
     <div class="container">
       <header class="header">
         <h2 id="upload-header">Make a post!</h2>
       </header>
       <div class="form">
-        <form>
+        <form name="form">
           <h4 id="img-tag">Add an image:</h4>
           <form action="/action_page.php">
             <input type="file" id="photo" name="filename" accept="image/*" />
@@ -83,22 +83,23 @@
               rows="4"
               cols="50"
               placeholder="add a short description"
-            ></textarea
-            >
+            ></textarea>
             <br />
           </form>
-          <div class="submit">
-            <button id="submit-button" onclick="uploadPost()">Submit</button>
-          </div>
         </form>
+        
       </div>
+      <input id="pac-input" class="controls" type="text" placeholder="Search"/>
+        <button id="current-location" class="controls">Go to Current Location</button>
+        <div id="map"></div>
     </div>
-    <input id="pac-input" class="controls" type="text" placeholder="Search"/>
-          <button id="current-location" class="controls">Go to Current Location</button>
-          <div id="map"></div>
-    </div>
+    
+          <div class="submit">
+            <button id="submit-button" onclick="submit()">Submit</button>
+          </div>
+    <div class="clear"></div>
 
-    <!-- <nav id="footerPlaceholder"></nav> -->
+    <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->

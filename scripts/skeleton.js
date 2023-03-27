@@ -3,7 +3,15 @@
 // (navbar, footer, and other things) into html doc. 
 //---------------------------------------------------
 function loadSkeleton(){
-    console.log($('#navbarPlaceholder').load('./text/navbar.html'));
-    console.log($('#footerPlaceholder').load('./text/footer.html'));
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            console.log($('#navbarPlaceholder').load('./text/navbar-after-login.html'));
+            console.log($('#footerPlaceholder').load('./text/footer.html'));
+        } else {
+            console.log($('#navbarPlaceholder').load('./text/navbar-before-login.html'));
+            console.log($('#footerPlaceholder').load('./text/footer.html'));
+        }
+    })
+    
 }
-loadSkeleton();  //invoke the function
+loadSkeleton();

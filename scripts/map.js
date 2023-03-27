@@ -1,4 +1,5 @@
 var map;
+var url;
 function initAutocomplete() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 49.250756, lng: -123.0007691 },
@@ -15,7 +16,8 @@ function initAutocomplete() {
     searchBox.setBounds(map.getBounds());
   });
 
-
+  let markers = [];
+  
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener("places_changed", () => {
@@ -25,11 +27,11 @@ function initAutocomplete() {
       return;
     }
 
-    // Clear out the old markers.
-    // markers.forEach((marker) => {
-    //   marker.setMap(null);
-    // });
-    // markers = [];
+    //Clear out the old markers.
+    markers.forEach((marker) => {
+      marker.setMap(null);
+    });
+    markers = [];
 
     // For each place, get the icon, name and location.
     const bounds = new google.maps.LatLngBounds();
@@ -49,15 +51,15 @@ function initAutocomplete() {
       };
       
 
-      // Create a marker for each place.
-      // markers.push(
-      //   new google.maps.Marker({
-      //     map,
-      //     icon,
-      //     title: place.name,
-      //     position: place.geometry.location,
-      //   })
-      // );
+      //Create a marker for each place.
+      markers.push(
+        new google.maps.Marker({
+          map,
+          icon,
+          title: place.name,
+          position: place.geometry.location,
+        })
+      );
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
@@ -121,36 +123,47 @@ function displayPostMarkers() {
       docId = doc.id;
       lat = doc.data().lat;
       lng = doc.data().lng;
-      console.log(docId)
       if(severity == "severe") {
         new google.maps.Marker({
-          docid: docId,
+          url: 'postdetails.html?docId=' + docId,
           position: new google.maps.LatLng(lat, lng),
+          animation: google.maps.Animation.DROP,
           map:map,
-          icon: iconBase + 'red-blank.png'
+          icon: iconBase + 'red-circle.png'
 
+        }).addListener('click',function(){
+          window.location.href = this.url;
         });
       }
       else if(severity == "moderate") {
         new google.maps.Marker({
-          docid: docId,
+          url: 'postdetails.html?docId=' + docId,
+          animation: google.maps.Animation.DROP,
           position: new google.maps.LatLng(lat, lng),
           map:map,
-          icon: iconBase + 'orange-blank.png'
+          icon: iconBase + 'orange-circle.png'
+        }).addListener('click',function(){
+          window.location.href = this.url;
         });
       }
       else {
         new google.maps.Marker({
-          docid: docId,
+          url: 'postdetails.html?docId=' + docId,
           position: new google.maps.LatLng(lat, lng),
+          animation: google.maps.Animation.DROP,
           map:map,
-          icon: iconBase + 'ylw-blank.png'
+          icon: iconBase + 'ylw-circle.png'
+        }).addListener('click',function(){
+          window.location.href = this.url;
         });
-      }      
-     
-      
+      } 
     });
   });
+}
+
+if(localStorage.getItem("firstTime")==null){
+  alert("Click on any marker to see post details");
+  localStorage.setItem("firstTime","done");
 }
 
 displayPostMarkers();

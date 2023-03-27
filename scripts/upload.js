@@ -1,3 +1,4 @@
+// global variables for lat and lng so they can be accessed by all functions.
 var lat;
 var lng;
 
@@ -28,13 +29,12 @@ function initAutocomplete() {
       return;
     }
 
-    // Clear out the old markers.
-    // markers.forEach((marker) => {
-    //   marker.setMap(null);
-    // });
-    // markers = [];
+     //Clear out the old markers.
+     markers.forEach((marker) => {
+      marker.setMap(null);
+    });
+    markers = [];
 
-    // For each place, get the icon, name and location.
     const bounds = new google.maps.LatLngBounds();
 
     places.forEach((place) => {
@@ -68,7 +68,6 @@ function initAutocomplete() {
         bounds.extend(place.geometry.location);
       }
     });
-    map.fitBounds(bounds);
   });
 
   infoWindow = new google.maps.InfoWindow();
@@ -102,13 +101,11 @@ function initAutocomplete() {
     }
   });
 
-  // console log the lat and lng of the map on click
+  // grabs the lat and lng from the dropped marker on the map.
   google.maps.event.addListener(map, "click", function (e) {
     console.log(e.latLng.lat(), e.latLng.lng());
     lat = e.latLng.lat();
     lng = e.latLng.lng();
-    console.log(lng);
-    console.log(lat);
     placeMarker(e.latLng);
   });
 
@@ -117,7 +114,6 @@ function initAutocomplete() {
       var marker = new google.maps.Marker({
         position:location,
         map:map,
-        draggable:true
       });
     
       marker.setPosition(location);
@@ -150,14 +146,20 @@ function listenFileSelect() {
 }
 listenFileSelect();
 
-document.addEventListener("keypress", function (event) {
-  if (event.key === "Enter") {
-    // event.preventDefault();
-    document.getElementById("submit-button").click();
-  }
-});
+// document.addEventListener("keypress", function (event) {
+//   if (event.key === "Enter") {
+//     document.getElementById("submit-button").click();
+//   }
+// });
+
+function submit() {
+  document.form.reset();
+  uploadPost();
+}
+
+// Uploads all fields from the form including the lat lng from the dropped pin on the map.
 function uploadPost() {
-  alert("Post is being uploaded");
+  alert("Your Post has been uploaded. You may now view it under your user profile.");
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       var desc = document.getElementById("hazard-description").value;
@@ -173,8 +175,7 @@ function uploadPost() {
           last_updated: firebase.firestore.FieldValue.serverTimestamp(), //current system time
         })
         .then((doc) => {
-          console.log("Post document added!");
-          console.log(doc.id);
+          console.log(title);
           uploadPic(doc.id);
         });
     } else {
@@ -183,9 +184,8 @@ function uploadPost() {
     }
   });
 }
-
+//uploads attached photo to firebase storage and links it with the post doc id.
 function uploadPic(postDocID) {
-  console.log("inside uploadPic " + postDocID);
   var storageRef = storage.ref("images/" + postDocID + ".jpg");
 
   storageRef
