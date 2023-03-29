@@ -45,6 +45,7 @@ svg {
 }
 a:link {
   color: #339989;
+  text-decoration: none;
 }
 a:visited {
   color: #339989;
@@ -143,7 +144,7 @@ a:hover {
 
 .card-img-top {
   width: 100%;
-  max-height: 60%;
+  max-height: 50%;
   object-fit: cover;
 }
 
