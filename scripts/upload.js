@@ -152,21 +152,18 @@ listenFileSelect();
 //   }
 // });
 
-function submit() {
-  document.form.reset();
-  uploadPost();
-}
-
 // Uploads all fields from the form including the lat lng from the dropped pin on the map.
 function uploadPost() {
   alert("Your Post has been uploaded. You may now view it under your user profile.");
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
+      var title = document.getElementById("title").value;
       var desc = document.getElementById("hazard-description").value;
       var severity = document.getElementById("severity-select").value;
       db.collection("posts")
         .add({
           owner: user.uid,
+          title: title,
           image: "",
           lat: lat,
           lng: lng,
