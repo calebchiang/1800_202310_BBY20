@@ -114,6 +114,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 }
 var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
+var postModal = document.querySelector("#postModal");
+var postModalContent = document.querySelector("#postModalContent");
 function displayPostMarkers() {
   db.collection('posts')
   .get()
@@ -132,7 +134,27 @@ function displayPostMarkers() {
           icon: iconBase + 'red-circle.png'
 
         }).addListener('click',function(){
-          window.location.href = this.url;
+          // window.location.href = this.url;
+          postModal.style.display = "block";
+          postModalContent.innerHTML = `
+          <div class="post-modal-content">
+            <div class="post-modal-header">
+              <span class="close" id="postModalClose">&times;</span>
+              <h2>${doc.data().title}</h2>
+              <img class="post-modal-image" src="${doc.data().image}" alt="post image">
+            </div>
+            <div class="post-modal-body">
+              <p><b>Description:</b> ${doc.data().description}</p>
+              <p><b>Severity:</b> ${doc.data().severity}</p>
+              <p><b>Uploaded:</b> ${moment.unix(doc.data().last_updated.seconds).format("MMM DD, YYYY [at] hh:mm A")} by ${doc.data().user ? doc.data().user : "anonymous"}
+              </p>
+            </div>
+          </div>
+          `;
+          var postModalClose = document.querySelector("#postModalClose");
+          postModalClose.addEventListener('click', function() {
+            postModal.style.display = "none";
+          });
         });
       }
       else if(severity == "moderate") {
@@ -143,7 +165,27 @@ function displayPostMarkers() {
           map:map,
           icon: iconBase + 'orange-circle.png'
         }).addListener('click',function(){
-          window.location.href = this.url;
+          // window.location.href = this.url;
+          postModal.style.display = "block";
+          postModalContent.innerHTML = `
+          <div class="post-modal-content">
+            <div class="post-modal-header">
+              <span class="close" id="postModalClose">&times;</span>
+              <h2>${doc.data().title}</h2>
+              <img class="post-modal-image" src="${doc.data().image}" alt="post image">
+            </div>
+            <div class="post-modal-body">
+              <p><b>Description:</b> ${doc.data().description}</p>
+              <p><b>Severity:</b> ${doc.data().severity}</p>
+              <p><b>Uploaded:</b> ${moment.unix(doc.data().last_updated.seconds).format("MMM DD, YYYY [at] hh:mm A")} by ${doc.data().user ? doc.data().user : "anonymous"}
+              </p>
+            </div>
+          </div>
+          `;
+          var postModalClose = document.querySelector("#postModalClose");
+          postModalClose.addEventListener('click', function() {
+            postModal.style.display = "none";
+          });
         });
       }
       else {
@@ -154,7 +196,27 @@ function displayPostMarkers() {
           map:map,
           icon: iconBase + 'ylw-circle.png'
         }).addListener('click',function(){
-          window.location.href = this.url;
+          // window.location.href = this.url;
+          postModal.style.display = "block";
+          postModalContent.innerHTML = `
+          <div class="post-modal-content">
+            <div class="post-modal-header">
+              <span class="close" id="postModalClose">&times;</span>
+              <h2>${doc.data().title}</h2>
+              <img class="post-modal-image" src="${doc.data().image}" alt="post image">
+            </div>
+            <div class="post-modal-body">
+              <p><b>Description:</b> ${doc.data().description}</p>
+              <p><b>Severity:</b> ${doc.data().severity}</p>
+              <p><b>Uploaded:</b> ${moment.unix(doc.data().last_updated.seconds).format("MMM DD, YYYY [at] hh:mm A")} by ${doc.data().user ? doc.data().user : "anonymous"}
+              </p>
+            </div>
+          </div>
+          `;
+          var postModalClose = document.querySelector("#postModalClose");
+          postModalClose.addEventListener('click', function() {
+            postModal.style.display = "none";
+          });
         });
       } 
     });
