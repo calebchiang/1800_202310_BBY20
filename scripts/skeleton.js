@@ -15,3 +15,14 @@ function loadSkeleton(){
     
 }
 loadSkeleton();
+
+function logout() {
+    if (confirm("Are you sure you want to logout?")) {
+        firebase.auth().signOut().then(() => {
+            console.log("User signed out");
+            window.location.href = "index.html";
+        }).catch((error) => {
+            console.log("Error signing out");
+        });
+    }
+}
