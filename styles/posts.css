@@ -8,3 +8,8 @@ body {
     display: grid;
     grid-template-rows: 63px auto 63px;
 }
+
+.material-icons{
+    font-size:25px;
+    margin-bottom: 5px;
+}

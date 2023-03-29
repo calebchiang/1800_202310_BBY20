@@ -5,6 +5,7 @@ function displayCardsDynamically(collection) {
     .get()
     .then(allPosts => {
       allPosts.forEach((post) => {
+        const postID = post.id;
         const { last_updated, description, owner, severity, image } = post.data();
         // make card a clone of cardTemplate
         let card = $('<div>');
@@ -26,11 +27,72 @@ function displayCardsDynamically(collection) {
           }).catch((error) => {
             console.log("Error getting document:", error);
         });
+        $(card).find('i').attr('id', 'save-' + postID).on('click', () => saveBookmark(postID));
+
+        currentUser.get().then(userDoc => {
+          //get the user name
+          var bookmarks = userDoc.data().bookmarks;
+          if (bookmarks.includes(postID)) {
+             document.getElementById('save-' + postID).innerText = 'bookmark';
+          }
+    })
+        
+        
         
         $('.card-container').append(card);
       });
 
     });
+
+    
+
+    
 }
 
-displayCardsDynamically("posts");
+// displayCardsDynamically("posts");
+
+//Global variable pointing to the current user's Firestore document
+var currentUser;   
+
+//Function that calls everything needed for the main page  
+function doAll() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid); //global
+            console.log(currentUser);
+
+      
+
+            // the following functions are always called when someone is logged in
+            
+            displayCardsDynamically("posts");
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+            window.location.href = "login.html";
+        }
+    });
+}
+
+doAll();
+
+
+//-----------------------------------------------------------------------------
+// This function is called whenever the user clicks on the "bookmark" icon.
+// It adds the hike to the "bookmarks" array
+// Then it will change the bookmark icon from the hollow to the solid version. 
+//-----------------------------------------------------------------------------
+function saveBookmark(postID) {
+  currentUser.set({
+          bookmarks: firebase.firestore.FieldValue.arrayUnion(postID)
+      }, {
+          merge: true
+      })
+      .then(function () {
+          console.log("bookmark has been saved for: " + currentUser);
+          var iconID = 'save-' + postID;
+          //console.log(iconID);
+          //this is to change the icon of the hike that was saved to "filled"
+          document.getElementById(iconID).innerText = 'bookmark';
+      });
+}
