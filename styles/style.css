@@ -128,7 +128,6 @@ a:hover {
   }
 }
 
-
 .card {
   display: flex;
   height: 525px;
@@ -161,4 +160,8 @@ a:hover {
   font-size: 0.7rem;
   font-weight: bold;
   cursor: pointer;
+}
+
+.container {
+  margin-top: 5rem;
 }
