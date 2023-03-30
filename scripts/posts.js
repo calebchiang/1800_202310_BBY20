@@ -96,3 +96,34 @@ function saveBookmark(postID) {
           document.getElementById(iconID).innerText = 'bookmark';
       });
 }
+
+function openPopup() {
+  // Create a new <div> element with the content you want to display
+  var popupContent = document.createElement("div");
+  popupContent.innerHTML = "<h1>Hello World!</h1>";
+  
+  // Create a close button and append it to the popup content
+  var closeButton = document.createElement("button");
+  closeButton.innerHTML = "Close";
+  closeButton.style.float = "right";
+  closeButton.style.marginTop = "-20px";
+  closeButton.addEventListener("click", function() {
+    popupContent.parentNode.removeChild(popupContent);
+  });
+  popupContent.appendChild(closeButton);
+
+  // Style the <div> element to look like a popup window
+  popupContent.style.position = "absolute";
+  popupContent.style.top = "50%";
+  popupContent.style.left = "50%";
+  popupContent.style.transform = "translate(-50%, -50%)";
+  popupContent.style.width = "400px";
+  popupContent.style.height = "400px";
+  popupContent.style.padding = "20px";
+  popupContent.style.border = "1px solid black";
+  popupContent.style.backgroundColor = "white";
+
+  // Append the <div> element to the current page
+  document.body.appendChild(popupContent);
+}
+
