@@ -68,6 +68,7 @@ function initAutocomplete() {
         bounds.extend(place.geometry.location);
       }
     });
+    map.fitBounds(bounds);
   });
 
   infoWindow = new google.maps.InfoWindow();
@@ -106,18 +107,18 @@ function initAutocomplete() {
     console.log(e.latLng.lat(), e.latLng.lng());
     lat = e.latLng.lat();
     lng = e.latLng.lng();
-    placeMarker(e.latLng);
+      placeMarker(e.latLng);
   });
 
   function placeMarker(location) {
-    
+    if (marker) {
+      marker.setPosition(location);
+    } else {
       var marker = new google.maps.Marker({
         position:location,
-        map:map,
+        map:map
       });
-    
-      marker.setPosition(location);
-    
+    }    
   }
 }
 
@@ -154,6 +155,7 @@ listenFileSelect();
 
 // Uploads all fields from the form including the lat lng from the dropped pin on the map.
 function uploadPost() {
+  if (window.confirm("Are you ready to upload? Make sure you place a marker on the map otherwise your post will not upload.")) {
   alert("Your Post has been uploaded. You may now view it under your user profile.");
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -180,6 +182,7 @@ function uploadPost() {
       console.log("Error, no user signed in");
     }
   });
+} 
 }
 //uploads attached photo to firebase storage and links it with the post doc id.
 function uploadPic(postDocID) {

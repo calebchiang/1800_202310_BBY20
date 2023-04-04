@@ -9,6 +9,7 @@ function populateUserInfo() {
       //get the document for current user.
       currentUser.get().then((userDoc) => {
         //get the data fields of the user
+        var useralias = userDoc.data().UserName;
         var userName = userDoc.data().name;
         var userEmail = userDoc.data().email;
         var userCity = userDoc.data().city;
@@ -22,6 +23,9 @@ function populateUserInfo() {
         }
         if (userCity != null) {
           document.getElementById("cityInput").value = userCity;
+        }
+        if (useralias != null) {
+          document.getElementById("userNameInput").value = useralias;
         }
       });
 
@@ -60,7 +64,7 @@ function populateUserInfo() {
               .get()
               .then((doc) => {
                 if (doc.exists) {
-                  $(card).find(".owner").text(doc.data().name);
+                  $(card).find(".owner").text(doc.data().UserName);
                 } else {
                   $(card).find(".owner").text("Anonymous");
                 }
@@ -99,12 +103,14 @@ function editUserInfo() {
 }
 
 function saveUserInfo() {
+  user_name = document.getElementById("userNameInput").value;
   userName = document.getElementById("nameInput").value; //get the value of the field with id="nameInput"
   userEmail = document.getElementById("emailInput").value; //get the value of the field with id="schoolInput"
   userCity = document.getElementById("cityInput").value; //get the value of the field with id="cityInput"
 
   currentUser
     .update({
+      UserName: user_name,
       name: userName,
       email: userEmail,
       city: userCity,
@@ -128,8 +134,9 @@ function insertNameFromFirestore(){
              var userName= userDoc.data().name;
              console.log(userName);
              //$("#name-goes-here").text(userName); //jquery
-             document.getElementById("name-goes-here").innerText=userName;
-         })    
+             document.getElementById("insert-name").innerText=userName;
+         });    
      }    
-  })
+  });
 }
+insertNameFromFirestore();

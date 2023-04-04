@@ -41,10 +41,15 @@
     <nav id="navbarPlaceholder"></nav>
       
     <div class="container">
-        <h1>User Profile </h1>
+        <h1><span id="insert-name"></span>'s Profile</h1>
         <form>
             <fieldset class="mb-3" id="personalInfoFields" disabled>
-                <div class="form-group">
+              <div class="form-group">
+                <label >Username (This will be what other users see on your posts)
+                </label>
+                <input type="text" id="userNameInput" class="form-control" placeholder="Enter a username">
+            </div>  
+              <div class="form-group">
                     <label >Name</label>
                     <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
                 </div>
@@ -60,11 +65,11 @@
             <div class="d-flex justify-content-end mt-5">
                 <button type="button" class="btn btn-secondary" onclick = "editUserInfo()">Edit</button>
                 <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick = "saveUserInfo()">Save</button>
+                <button type="button" class="btn btn-primary" onclick = "saveUserInfo()">Save</button>
             </div>
         </form>
     </div>
-
+<div class="color">
     <div class="card-container">
         <template id="postCardTemplate">
           <div class="card">
@@ -73,9 +78,10 @@
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <p class="severity">Severity</p>
             </div>
-            <button class="delete-button">Delete</button>
+            <button class="btn delete-button">Delete</button>
             <div class="card-footer">
-              <small class="text-muted">Last updated <span class='last_updated'></span> by <span class="owner"></span></small>
+              <small class="text-muted">Posted on: <span class='last_updated'></span> by <span class="owner"></span></small>
+              </div>
             </div>
           </div>
         </template>

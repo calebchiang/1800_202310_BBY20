@@ -33,7 +33,7 @@ html, body {
   }
   
   .pac-card {
-    background-color: #fff;
+    background-color: #fffafb;
     border: 0;
     border-radius: 2px;
     box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
@@ -62,7 +62,7 @@ html, body {
   }
   
   #pac-input {
-    background-color: #fff;
+    background-color: #fffafb;
     font-family: Roboto;
     font-size: 15px;
     font-weight: 300;
@@ -85,7 +85,7 @@ html, body {
   #current-location {
     margin: 5px;
     font-size: 0.7rem;
-    background-color: #4d90fe;
+    background-color: #2191fb;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -96,7 +96,15 @@ html, body {
     height: 14vh;
   }
   #submit-button {
-    margin-right: 10vw;
-    margin-left: 80vw;
-  }
+ 
+    
+    margin-left: 84vw;
   
+  }
+  .mapinstruction {
+    text-align: center;
+    margin-top: 10vh;
+  }
+  @media (max ) {
+    
+  }

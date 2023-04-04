@@ -20,7 +20,7 @@ function displayCardsDynamically(collection) {
           .get()
           .then((doc) => {
             if (doc.exists) {
-                $(card).find('.owner').text(doc.data().name);
+                $(card).find('.owner').text(doc.data().UserName);
             } else {  
                 $(card).find('.owner').text('Anonymous');
             }
@@ -97,40 +97,5 @@ function saveBookmark(postID) {
       });
 }
 
-function openPopup(event) {
-  // Get the parent container element of the button
-  var parentContainer = event.target.closest('.card');
-  
-  // Create a new <div> element with the content you want to display
-  var popupContent = document.createElement("div");
-  popupContent.innerHTML = "<h1>Hello World!</h1>";
-  
-  // Create a close button and append it to the popup content
-  var closeButton = document.createElement("button");
-  closeButton.innerHTML = "Close";
-  closeButton.style.float = "right";
-  closeButton.style.marginTop = "-20px";
-  closeButton.addEventListener("click", function() {
-    popupContent.parentNode.removeChild(popupContent);
-  });
-  popupContent.appendChild(closeButton);
 
-  // Style the <div> element to look like a popup window
-  popupContent.style.position = "absolute";
-  var parentRect = parentContainer.getBoundingClientRect();
-  var parentLeft = parentRect.left + window.scrollX;
-  var parentTop = parentRect.top + window.scrollY;
-  // If u want the window more left
-  popupContent.style.left = (parentLeft + parentRect.width/2 - popupContent.offsetWidth/2 + -250) + "px";
-  // Adjust the height with this 
-  popupContent.style.top = (parentTop + parentRect.height + -500) + "px";
-  popupContent.style.width = "600px";
-  popupContent.style.height = "400px";
-  popupContent.style.padding = "20px";
-  popupContent.style.border = "1px solid black";
-  popupContent.style.backgroundColor = "white";
-  popupContent.style.zIndex = "1000";
 
-  // Append the <div> element to the current page
-  document.body.appendChild(popupContent);
-}

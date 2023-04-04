@@ -61,7 +61,7 @@ body {
 }
 
 #pac-input {
-  background-color: #fff;
+  background-color: #fffafb;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
@@ -76,12 +76,12 @@ body {
 }
 
 #pac-input:focus {
-  border-color: #4d90fe;
+  border-color: #2191fb;
 }
 
 #title {
   color: #fff;
-  background-color: #4d90fe;
+  background-color: #2191fb;
   font-size: 25px;
   font-weight: 500;
   padding: 6px 12px;
@@ -94,7 +94,7 @@ body {
 #current-location {
   margin: 5px;
   font-size: 0.7rem;
-  background-color: #4d90fe;
+  background-color: #2191fb;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -116,7 +116,7 @@ body {
 }
 
 #postModalContent {
-  background-color: #fefefe;
+  background-color: #2191fb;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
