@@ -40,30 +40,40 @@
       <h1>Saved Posts for <span id=name-goes-here></span></h1>
       <!-- Here is container for cards  -->
       <div class="container">
-          <div id="hikeCardGroup" class="row row-cols-auto">
+          <div id="postCardGroup" class="row row-cols-auto">
           </div>
       </div>
 </div>
 
-<!-- Templates for general use, not displayed -->
-<template id="savedCardTemplate">
-      <div class="card py-2 mx-2 bg-light" style="width: 10rem;">
-          <img class="card-image card-img-top" src=" ..." alt="...">
-          <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-length">placeholder</p>
-              <br>
-              <button class="btn btn-primary card-href" id="read-more">Read more ...</button>
-          </div>
+
+
+
+<div class="card-container">
+  <template id="savedCardTemplate">
+    <div class="card">
+      <img class="card-img-top" src="#" alt="...">
+      <div class="card-body">
+        <p class="card-description">Card title</p>
+        <p class="card-severity">placeholder</p>
+          <br>
       </div>
-</template>
+      <button class ="see-on-map" onclick = "openPopup(event)"> See on Map</button>
+
+      <div class="card-footer">
+      
+        <small class="text-muted">Last updated <span class='last_updated'></span> by <span class="owner"></span></small>
+      </div>
+     
+    </div>
+  </template>
+</div>
 
     <!------------------------------------->
     <!-- the body of your page goes here -->
     <!------------------------------------->
     
 
-    <nav id="footerPlaceholder"></nav>
+  <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
@@ -74,5 +84,7 @@
     <!-- <script src="./scripts/script.js"></script> -->
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/bookmark.js"></script>
+
+   
   </body>
 </html>
