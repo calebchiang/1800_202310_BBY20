@@ -55,8 +55,6 @@ a:hover {
 .user-profile-icon img {
   border-radius: 50%;
   background-color: #339989;
- 
-
 }
 
 .profile-container{
@@ -119,7 +117,7 @@ a:hover {
 
   .login-web {
     display: block;
-    margin-right: 5%;
+    margin-right: 2rem;
     font-size: .9em;
   }
   .login-mobile { 
