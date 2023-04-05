@@ -3,7 +3,7 @@ body {
 }
 
 .header {
-    margin-top: 12rem;
+    margin-top: 8rem;
     text-align: center;
 }
 #header {
@@ -22,6 +22,32 @@ color: #339989;
 .image {
     height: 30vh;
 }
-.mission {
-    margin-top: 3rem;
+
+.tab-header {
+    text-align: center;
+    margin-top: 1rem;
+}
+#missionhead {
+    color: #004ba8;
+}
+#aboutusheader {
+    color: #339989;
+}
+h3 {
+    display: inline-block;
+}
+#slogan1 {
+    color: #004ba8;
+}
+#slogan2 {
+    color: #004ba8;
+}
+#slogan3 {
+    color: #004ba8;
+}
+#login {
+    width: 9.4rem;
+}
+.buttons {
+    margin-top: 2.5rem;
 }

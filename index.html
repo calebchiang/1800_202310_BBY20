@@ -40,12 +40,18 @@
     <div class="container">
     <div class="jumbotron">
       <div class="header">
+        
         <h1 id= "header">Side Guide</h1>
       </div>
       <p class="lead"></p>
       <hr class="my-4">
       <div class="slogan">
-        <h3 id="slogan">See it, snap it, share it!</h3>
+        <h3 id="slogan1">See it</h3><h3 id="slogan2">, snap it</h3><h3 id="slogan3">, share it!</h3> 
+        <div class="buttons">
+          <a href="login.html"><button class="btn btn-success" id="login">login</button></a>
+          <a href="map.html"><button class="btn btn-primary">Continue as guest</button></a>
+        </div>
+        
       </div>
     </div>
     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
@@ -55,19 +61,26 @@
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Who we are</button>
       </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">other stuff</button>
-      </li>
+      
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <div class="missionHeader">
+          <h4 class="tab-header" id="missionhead">Making sidewalks safer for everyone</h4>
+        </div>
         <p class="mission">Our mission is to provide a user-friendly platform that enables individuals to report hazards on sidewalks caused by weather events, 
           and view them on a map in real-time. Our goal is to empower communities to take action and improve safety, 
           particularly in areas affected by the increasingly frequent and severe weather events attributed to global warming. 
-          We believe that by leveraging technology and collective action, we can create a safer, more accessible, and sustainable environment for all.</p>
+          We believe that by working together and making use of technology, we can create a safer, more accessible, and sustainable environment for all.</p>
       </div>
-      <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0"></div>
-      <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0"></div>
+      <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+      <h4 class="tab-header" id="aboutusheader">About us</h4>
+        <p>
+          We are three BCIT Computer Science Technology students in term one and we set out to address some extreme weather problems in some form or another. We have built this web application 
+          in hopes that it can help anyone and everyone that relies on a safe environment when they walk while commuting or for leisure.
+        </p>
+      </div>
+      
     </div>
     </div>
     <nav id="footerPlaceholder"></nav>

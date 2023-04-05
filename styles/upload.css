@@ -10,7 +10,7 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10vh;
-    height: 70%;
+    height: 38rem;
     width: 60%;
   }
   
@@ -95,16 +95,25 @@ html, body {
   .clear {
     height: 14vh;
   }
-  #submit-button {
  
-    
-    margin-left: 84vw;
-  
-  }
   .mapinstruction {
     text-align: center;
     margin-top: 10vh;
   }
-  @media (max ) {
-    
+  button.upload {
+    float: right;
+    margin-right: 19rem;
+    margin-bottom: 7rem;
+  }
+  
+  
+  @media (max-width:700px) {
+    #map {
+      margin-top: 10vh;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10vh;
+      height: 25rem;
+      width: 80%;
+    }
   }
