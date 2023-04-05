@@ -47,6 +47,7 @@ function getBookmarks(user) {
           bookmarks.forEach(thisPostID => {
               console.log(thisPostID);
               db.collection("posts").doc(thisPostID).get().then(doc => {
+                  var title = doc.data().title; // get title value
                   var description = doc.data().description; // get value of the description
                   var severity = doc.data().severity; //gets the severity
                   var image = doc.data().image;
@@ -55,6 +56,8 @@ function getBookmarks(user) {
                   let newcard = newcardTemplate.content.cloneNode(true);
 
                   //update description, severity, and image
+
+                  newcard.querySelector('.card-title').innerHTML = title;
                   newcard.querySelector('.card-description').innerHTML = description;
                   newcard.querySelector('.card-severity').innerHTML = severity;
                   newcard.querySelector('.card-image').src = image; // set the src attribute of the img element to the URL
