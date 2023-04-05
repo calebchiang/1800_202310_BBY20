@@ -29,6 +29,10 @@ html, body {
 
 }
 
+.navbar-toggler {
+  padding-right: 2rem;
+}
+
 .navbar-toggler-icon {
   background-image: url("https://cdn-icons-png.flaticon.com/512/9663/9663120.png");
   background-color: #339989;
@@ -75,9 +79,6 @@ a:hover {
   margin: 5rem auto;
   gap: 2rem;
 }
-
-
-
 
 .card {
   display: flex;
