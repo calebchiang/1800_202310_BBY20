@@ -28,6 +28,13 @@ html, body {
   text-align: center;
 
 }
+
+.navbar-toggler-icon {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/9663/9663120.png");
+  background-color: #339989;
+  border-radius: 10%;
+}
+
 svg {
   fill: #339989;
 }
