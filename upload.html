@@ -47,14 +47,14 @@
     <form class="upload-form">
     <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Please add a title for your post!</label>
-  <input type="email" class="form-control" id="title" placeholder="Title">
+  <input type="text" class="form-control" id="title" placeholder="Title" required>
 </div>
 <div class="mb-3">
     <label for="formFile" class="form-label">Please include a photo for your post!</label>
-    <input class="form-control" type="file" id="photo" accept="image/*">
+    <input class="form-control" type="file" id="photo" accept="image/*" required>
     <img id = "image">
   </div>
-  <select class="form-select" aria-label="Default select example" id="severity-select">
+  <select class="form-select" aria-label="Default select example" id="severity-select" required>
     <option selected>--Please choose a severity level that best represents the hazard--</option>
     <option value="mild">Mild</option>
     <option value="moderate">Moderate</option>

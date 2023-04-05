@@ -1,0 +1,27 @@
+body {
+    background-color: #fffafb;
+}
+
+.header {
+    margin-top: 12rem;
+    text-align: center;
+}
+#header {
+font-size: 4rem;
+color: #339989;
+}
+.slogan {
+    text-align: center;
+}
+#slogan {
+    color: #339989;
+}
+.nav {
+    margin-top: 4rem;
+}
+.image {
+    height: 30vh;
+}
+.mission {
+    margin-top: 3rem;
+}

@@ -1,6 +1,6 @@
 
 html, body {
-  
+  font-family: roboto;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -48,9 +48,7 @@ svg {
   fill: #339989;
 }
 
-.login-web {
-  display: none;
-}
+
 
 .login-mobile {
   margin-right: auto;
@@ -113,6 +111,10 @@ a:hover {
   margin-top: 5rem;
 }
 @media (max-width: 992px) {
+  .login-web {
+    display: none;
+  }
+
   .user-profile-icon {
     display: none;
   }
