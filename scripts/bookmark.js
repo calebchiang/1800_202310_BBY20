@@ -58,12 +58,12 @@ function getBookmarks(user) {
                   //update description, severity, and image
 
                   newcard.querySelector('.card-title').innerHTML = title;
-                  newcard.querySelector('.card-description').innerHTML = description;
-                  newcard.querySelector('.card-severity').innerHTML = severity;
-                  newcard.querySelector('.card-image').src = image; // set the src attribute of the img element to the URL
+                  newcard.querySelector('.card-text').innerHTML = description;
+                  newcard.querySelector('.severity').innerHTML = severity;
+                  newcard.querySelector('.card-img-top').src = image; // set the src attribute of the img element to the URL
                   
            
-                  postCardGroup.appendChild(newcard);
+                  savedCardGroup.appendChild(newcard);
               })
           });
       })
