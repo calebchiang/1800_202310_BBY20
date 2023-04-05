@@ -6,7 +6,7 @@ function displayCardsDynamically(collection) {
     .then((allPosts) => {
       allPosts.forEach((post) => {
         const postID = post.id;
-        const { last_updated, description, owner, severity, image } =
+        const { last_updated, description, owner, severity, image, title, lat, lng } =
           post.data();
         // make card a clone of cardTemplate
         let card = $("<div>");
@@ -18,6 +18,7 @@ function displayCardsDynamically(collection) {
             image ||
               "https://www.keflatwork.com/wp-content/uploads/2019/08/Empty-sidewalk.jpg"
           );
+        $(card).find(".card-title").text(title);
         $(card).find(".card-text").text(description);
         $(card).find(".severity").text(severity);
         if (last_updated)
@@ -28,7 +29,12 @@ function displayCardsDynamically(collection) {
                 .unix(last_updated.seconds)
                 .format("MMM DD, YYYY [at] hh:mm A")
             );
-
+        
+        // Redirect to map page centered on the post location
+        $(card).find(".see-on-map").on("click", () => {
+          window.location.href = `map.html?lat=${lat}&lng=${lng}`;
+        });
+        
         db.collection("users")
           .doc(owner)
           .get()
