@@ -51,6 +51,9 @@ function getBookmarks(user) {
                   var description = doc.data().description; // get value of the description
                   var severity = doc.data().severity; //gets the severity
                   var image = doc.data().image;
+                 // var lastUpdatedTimestamp = doc.data().last_updated;
+                 // var lastUpdatedDate = lastUpdatedTimestamp.toDate(); // convert Firestore timestamp to JavaScript Date object
+                 // var lastUpdatedString = lastUpdatedDate.toLocaleString();
         
                    //clone the new card
                   let newcard = newcardTemplate.content.cloneNode(true);
@@ -61,6 +64,7 @@ function getBookmarks(user) {
                   newcard.querySelector('.card-text').innerHTML = description;
                   newcard.querySelector('.severity').innerHTML = severity;
                   newcard.querySelector('.card-img-top').src = image; // set the src attribute of the img element to the URL
+                 // newcard.querySelector('.last-updated').innerHTML = lastUpdatedString;
                   
            
                   savedCardGroup.appendChild(newcard);
