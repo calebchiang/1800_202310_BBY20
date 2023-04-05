@@ -35,10 +35,10 @@ function populateUserInfo() {
         .get()
         .then((allPosts) => {
           allPosts.forEach((post) => {
-            const { last_updated, description, owner, severity, image } =
+            const { last_updated, description, owner, severity, image, title } =
               post.data();
             // make card a clone of cardTemplate
-            let card = $("<div>");
+            let card = $("<div class='profile-card'>");
             $(card).html(cardTemplate.innerHTML);
 
             $(card)
@@ -48,6 +48,7 @@ function populateUserInfo() {
                 image ||
                   "https://www.keflatwork.com/wp-content/uploads/2019/08/Empty-sidewalk.jpg"
               );
+            $(card).find(".card-title").text(title);
             $(card).find(".card-text").text(description);
             $(card).find(".severity").text(severity);
             if (last_updated)
@@ -73,7 +74,7 @@ function populateUserInfo() {
                 console.log("Error getting user's name:", error);
               });
 
-            $(".card-container").append(card);
+            $(".profile-card-container").append(card);
 
             let deleteButton = $(card).find(".delete-button");
             $(deleteButton).click(() => {

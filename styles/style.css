@@ -89,6 +89,7 @@ a:hover {
   display: flex;
   height: 525px;
   max-height: 525px;
+  width: 24rem;
   margin: 1rem;
   overflow-y: hidden;
   flex-direction: column;
@@ -112,6 +113,20 @@ a:hover {
 .container {
   margin-top: 5rem;
 }
+
+.profile-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.profile-card {
+  display: flex;
+  margin: 0.5rem auto;
+}
+
 @media (max-width: 992px) {
   .login-web {
     display: none;
