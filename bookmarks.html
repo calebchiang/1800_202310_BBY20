@@ -26,6 +26,7 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/posts.css" />
 
   </head>
 
@@ -51,18 +52,17 @@
 <div class="card-container">
   <template id="savedCardTemplate">
     <div class="card">
-      <img class="card-img-top" src="#" alt="...">
+      
       <div class="card-body">
+        <img class="card-image" src="" alt="" width="300" height="200">
         <p class="card-description">Card title</p>
         <p class="card-severity">placeholder</p>
           <br>
       </div>
-      <button class ="see-on-map" onclick = "openPopup(event)"> See on Map</button>
-
-      <div class="card-footer">
+      <button class ="see-on-map btn-primary" id="mapbtn"> See on Map</button>
       
-        <small class="text-muted">Last updated <span class='last_updated'></span> by <span class="owner"></span></small>
-      </div>
+
+     
      
     </div>
   </template>
