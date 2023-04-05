@@ -7,13 +7,18 @@ html, body {
   
 }
 
-.login{
+.login {
   width: 100%;
   text-align: center;
   color: #339989;
   align-items: center;
-  margin-top: 10%;
-  margin-bottom:2%;
+  margin-top: 14rem;
+}
+
+.login > h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
 .navbar { 
