@@ -8,12 +8,15 @@ function setLocation() {
   if (!(lat = null)) {
     lat = params.get("lat");
     lng = params.get('lng');
+  } else {
+    lat = 49.24846075017561;
+    lng = -123.00176401880974;
   }
-  lat = 49.24846075017561;
-  lng = -123.00176401880974;
+
   
 }
 setLocation();
+//initializes the map.
 function initAutocomplete() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: parseFloat(lat), lng: parseFloat(lng) },
