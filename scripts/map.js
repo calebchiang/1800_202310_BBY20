@@ -1,8 +1,22 @@
 var map;
 var url;
+var lat;
+var lng; 
+//Sets lat and lng if user is directed from button 'see on map' from 'posts' page and centers the map on the selected post. If not, centered on BCIT. 
+function setLocation() {
+  var params = new URLSearchParams(window.location.search)
+  if (!(lat = null)) {
+    lat = params.get("lat");
+    lng = params.get('lng');
+  }
+  lat = 49.24846075017561;
+  lng = -123.00176401880974;
+  
+}
+setLocation();
 function initAutocomplete() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 49.250756, lng: -123.0007691 },
+    center: { lat: parseFloat(lat), lng: parseFloat(lng) },
     zoom: 14,
     mapTypeId: "roadmap",
   });
