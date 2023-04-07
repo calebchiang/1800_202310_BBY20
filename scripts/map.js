@@ -1,20 +1,19 @@
 var map;
 var url;
 var lat;
-var lng; 
+var lng;
 //Sets lat and lng if user is directed from button 'see on map' from 'posts' page and centers the map on the selected post. If not, centered on BCIT. 
 function setLocation() {
   var params = new URLSearchParams(window.location.search)
-  if (!(lat = null)) {
     lat = params.get("lat");
     lng = params.get('lng');
-  } else {
-    lat = 49.24846075017561;
-    lng = -123.00176401880974;
+    if (lat === null || lng === null){
+      lat = 49.24846075017561;
+      lng = -123.00176401880974; 
+    }
+    
   }
-
   
-}
 setLocation();
 //initializes the map.
 function initAutocomplete() {
