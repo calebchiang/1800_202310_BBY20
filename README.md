@@ -56,7 +56,8 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
+    /favicon.ico             # Favicon.io
+    /pedestrian.png          # flaticon.com
 ├── scripts                  # Folder for scripts
     /authentication.js       
     /bookmark.js
