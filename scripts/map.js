@@ -13,9 +13,10 @@ function setLocation() {
     }
     
   }
-  
 setLocation();
-//initializes the map.
+
+
+//initializes the google maps api map for our interactive map page.
 function initAutocomplete() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: parseFloat(lat), lng: parseFloat(lng) },
@@ -129,6 +130,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 
 }
+
+/*Creating markers for each post uploaded to firebase. Checking the value of the severity determines the color of the marker
+ *The marker also contains a click listener that displays a modal window of the post details. This code seems redundant and clunky,
+ * but it doesn't seem to like it when you try to put any other code than what google expects in the definition variables
+ * for the marker. There is possibly a way to make this more efficient but we could not find it.
+*/
 var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
 var postModal = document.querySelector("#postModal");
 var postModalContent = document.querySelector("#postModalContent");
@@ -150,7 +157,6 @@ function displayPostMarkers() {
           icon: iconBase + 'red-circle.png'
 
         }).addListener('click',function(){
-          // window.location.href = this.url;
           postModal.style.display = "block";
           postModalContent.innerHTML = `
           <div class="post-modal-content">
@@ -181,7 +187,6 @@ function displayPostMarkers() {
           map:map,
           icon: iconBase + 'orange-circle.png'
         }).addListener('click',function(){
-          // window.location.href = this.url;
           postModal.style.display = "block";
           postModalContent.innerHTML = `
           <div class="post-modal-content">

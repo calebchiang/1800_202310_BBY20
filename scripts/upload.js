@@ -2,6 +2,7 @@
 var lat;
 var lng;
 
+//Initializing google maps api for the upload page.
 function initAutocomplete() {
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 49.250756, lng: -123.0007691 },
@@ -147,11 +148,6 @@ function listenFileSelect() {
 }
 listenFileSelect();
 
-// document.addEventListener("keypress", function (event) {
-//   if (event.key === "Enter") {
-//     document.getElementById("submit-button").click();
-//   }
-// });
 
 // Uploads all fields from the form including the lat lng from the dropped pin on the map.
 function uploadPost() {
